@@ -1,5 +1,9 @@
 # Nuxt 3 Minimal Starter
 
+http://localhost:3000/_nitro/scalar
+
+`bunx puppeteer browsers install chrome`
+
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
 ## Setup

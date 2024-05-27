@@ -1,5 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  modules: ["@nuxtjs/tailwindcss", "shadcn-nuxt"],
   devtools: { enabled: true },
-  modules: ["@nuxtjs/tailwindcss", "shadcn-nuxt"]
+
+  nitro: {
+    preset: 'bun',
+    experimental: {
+      openAPI: true
+    }
+  },
 })

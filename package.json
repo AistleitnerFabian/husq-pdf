@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-app",
+  "name": "husq-pdf",
   "private": true,
   "type": "module",
   "scripts": {
@@ -16,6 +16,8 @@
     "clsx": "^2.1.1",
     "lucide-vue-next": "^0.379.0",
     "nuxt": "^3.11.2",
+    "puppeteer": "^22.10.0",
+    "qs": "^6.12.1",
     "radix-vue": "^1.8.2",
     "shadcn-nuxt": "latest",
     "tailwind-merge": "^2.3.0",
@@ -24,6 +26,7 @@
     "vue-router": "^4.3.2"
   },
   "devDependencies": {
+    "@types/qs": "^6.9.15",
     "typescript": "^5.4.5"
   }
 }
