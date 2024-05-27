@@ -1,20 +1,9 @@
-<script setup lang="ts">
-
-import {ResizableHandle, ResizablePanelGroup, ResizablePanel} from "~/components/ui/resizable";
-import schema from "../"
-import {previewComponents} from "~/lib/utils/preview-components";
-</script>
-
 <template>
-  <div class="p-4 h-screen">
-    <ResizablePanelGroup direction="horizontal" class="h-full rounded-lg border">
-      <ResizablePanel id="handle-demo-panel-1" :default-size="25">
-        <component :is="previewComponents[schema]"  />
-      </ResizablePanel>
-      <ResizableHandle id="handle-demo-handle-1" />
-      <ResizablePanel id="handle-demo-panel-2" :default-size="75">
-        <slot />
-      </ResizablePanel>
-    </ResizablePanelGroup>
+  <div class="w-full min-h-screen dark h-full bg-background pt-8 overflow-y-auto">
+    <div class="container w-[800px] light max-w-[800px] min-w-[800px] rounded bg-white shadow-[0_20px_100px_-20px_rgba(0,0,0,0.3)] shadow-primary mb-8">
+      <slot/>
+    </div>
   </div>
 </template>
+<script setup lang="ts">
+</script>

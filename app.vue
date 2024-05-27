@@ -1,7 +1,12 @@
 <template>
-  <nuxt-layout>
+  <NuxtLayout :name="mode">
     <RouterView/>
-  </nuxt-layout>
+  </NuxtLayout>
 </template>
+
 <script setup lang="ts">
+import {useLayoutMode} from "~/composeables/useLayoutMode";
+
+const mode = useLayoutMode()
+
 </script>
