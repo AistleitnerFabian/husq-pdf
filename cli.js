@@ -9,7 +9,8 @@ function action(name, opts) {
     const assetsDir = `${cwd}/public/pdf/${name}`
     const schemaPath = `${assetsDir}/schema.json`
     const typesPath = `${cwd}/types/pdf/${name}`
-    const vuePath = `${cwd}/pages/pdf/${name}.vue`
+    const vueDir = `${cwd}/pages/pdf/${name}`
+    const vuePath = `${vueDir}/index.vue`
 
     function generateTypes() {
         if(!fs.existsSync(typesPath)) fs.mkdirSync(typesPath)
@@ -33,6 +34,8 @@ function action(name, opts) {
   import {usePageData} from "@/composeables/usePageData";
   let pageData = () => usePageData<Schema>()
 </script>`
+
+        if(!fs.existsSync(vueDir)) fs.mkdirSync(vueDir)
 
         fs.writeFile(vuePath, template, { encoding }, err => {
             if(err) {
