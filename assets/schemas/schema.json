@@ -17,10 +17,7 @@
           "type": "object",
           "properties": {
             "foo": {"type": "string"},
-            "bar": {
-              "type": "number",
-              "minimum": 2
-            }
+            "bar": {"type": "int" }
           }
         }
       ]
