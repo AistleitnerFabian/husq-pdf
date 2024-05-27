@@ -1,5 +1,7 @@
 <template>
-  <div class="container dark">
+  <nuxt-layout>
     <RouterView/>
-  </div>
+  </nuxt-layout>
 </template>
+<script setup lang="ts">
+</script>

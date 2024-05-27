@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "age": {
+      "type": "int"
+    },
+    "whatever": {
+      "type": "boolean"
+    },
+    "hobbies": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "foo": {"type": "string"},
+            "bar": {
+              "type": "number",
+              "minimum": 2
+            }
+          }
+        }
+      ]
+    }
+  }
+}
