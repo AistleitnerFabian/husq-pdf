@@ -1,6 +1,7 @@
 <script setup lang="ts">
 
 import {previewComponents} from "~/lib/utils/preview-components";
+import {computed} from "vue";
 
 type SchemaType = {
   type: string;
@@ -8,13 +9,22 @@ type SchemaType = {
   items?: Record<string, SchemaType>[]
 }
 
-const props = defineProps<{ schema: SchemaType }>()
+type ObjectSettingsProps = {
+  name: string;
+  schema: SchemaType
+}
+
+const props = defineProps<ObjectSettingsProps>()
+const properties = computed(() => props.schema.properties)
 </script>
 
 <template>
-  <div class="p-4 gap-2">
-    <p v-for="[name, el] in Object.entries(props.schema.properties)">
-      <component :is="previewComponents[el.type]" :name="name" />
-    </p>
+  <div v-for="[name, el] in Object.entries(properties)">
+    <component
+        :key="name"
+        :is="previewComponents[el.type]"
+        :schema="el"
+        :name="name"
+    />
   </div>
 </template>

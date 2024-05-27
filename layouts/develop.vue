@@ -9,7 +9,9 @@ import {previewComponents} from "~/lib/utils/preview-components";
   <div class="dark p-4 h-screen bg-background">
     <ResizablePanelGroup direction="horizontal" class="h-full rounded-lg border">
       <ResizablePanel id="handle-demo-panel-1" :default-size="25">
-        <component :is="previewComponents[schema]"/>
+        <div class="p-4 space-y-2">
+          <component :is="previewComponents[schema.type]" :schema="schema" name="root" />
+        </div>
       </ResizablePanel>
       <ResizableHandle id="handle-demo-handle-1"/>
       <ResizablePanel id="handle-demo-panel-2" :default-size="75">

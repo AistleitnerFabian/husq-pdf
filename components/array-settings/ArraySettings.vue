@@ -1,20 +1,29 @@
 <script setup lang="ts">
-
 import {previewComponents} from "~/lib/utils/preview-components";
+import {computed} from "vue";
 
 type SchemaType = {
   type: string;
-  properties: Record<string, SchemaType>,
+  properties?: Record<string, SchemaType>,
   items?: SchemaType[]
 }
 
-const props = defineProps<{ schema: SchemaType }>()
+type ArraySettingsProps = {
+  name: string
+  schema: SchemaType
+}
+
+const props = defineProps<ArraySettingsProps>()
+const items = computed(() => props.schema.items)
 </script>
 
 <template>
-  <div class="p-4 gap-2">
-    <p v-for="record in props.schema.items">
-      <component :is="previewComponents[record.type]" />
-    </p>
+  <div v-for="(record, index) in items" class="space-y-2">
+    <component
+        :key="props.name"
+        :is="previewComponents[record.type]"
+        :schema="record"
+        :name="index.toString()"
+    />
   </div>
 </template>
