@@ -16,7 +16,10 @@ function action(name, opts) {
         const typesFile = `${typesPath}/index.ts`
 
         compileFromFile(schemaPath)
-            .then(ts => fs.writeFileSync(typesFile, ts))
+            .then(ts => {
+                fs.writeFileSync(typesFile, ts)
+                console.log(`Created ${typesFile}`)
+            })
             .catch(err => program.error("failed to compile schema file: ", err))
     }
 
@@ -36,7 +39,7 @@ function action(name, opts) {
                 program.error(`failed to write file ${schemaPath}: `, err.message);
             }
 
-            console.log(`successfully created ${schemaPath}`)
+            console.log(`Created ${vuePath}`)
         })
     }
 
@@ -45,11 +48,11 @@ function action(name, opts) {
     }
 
     if(opts.types) {
-        return generateTypes()
+        generateTypes()
     }
 
     if(opts.page) {
-        return generateVuePage()
+        generateVuePage()
     }
 }
 
