@@ -6,7 +6,7 @@ import StringSettings from "~/components/string-settings/StringSettings.vue";
 
 export const previewComponents: {[key: string]: any} = {
     "string": StringSettings,
-    "int": NumberSettings,
+    "integer": NumberSettings,
     "boolean": BooleanSettings,
     "array": ArraySettings,
     "object": ObjectSettings

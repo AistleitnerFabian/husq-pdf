@@ -1,10 +1,14 @@
 <script setup lang="ts">
-import {Label} from "radix-vue";
-import {useBindUrl} from "~/lib/utils/useBindUrl";
+import {useBindUrl} from "~/composeables/useBindUrl";
 import {capitalize, computed} from "vue";
 
-const props = defineProps<{ name: string }>()
-const { query, updateQueryParam } = useBindUrl(props.name)
+type NumberSettingsProps = {
+  name: string;
+  path: string;
+}
+
+const props = defineProps<NumberSettingsProps>()
+const { query, updateQueryParam } = useBindUrl(props.path)
 const title = computed(() => capitalize(props.name))
 </script>
 

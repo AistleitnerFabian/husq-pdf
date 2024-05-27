@@ -1,9 +1,15 @@
 <script setup lang="ts">
-import {useBindUrl} from "~/lib/utils/useBindUrl";
+import {useBindUrl} from "~/composeables/useBindUrl";
 import {capitalize} from "@/lib/utils/ui";
 import {computed} from "vue";
-const props = defineProps<{ name: string }>()
-const { query, updateQueryParam } = useBindUrl(props.name)
+
+type StringSettingsProps = {
+  name: string;
+  path: string;
+}
+
+const props = defineProps<StringSettingsProps>()
+const { query, updateQueryParam } = useBindUrl(props.path)
 const title = computed(() => capitalize(props.name))
 </script>
 

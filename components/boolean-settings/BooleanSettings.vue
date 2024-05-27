@@ -1,10 +1,14 @@
 <script setup lang="ts">
 import {Label} from "radix-vue";
-import {useBindUrl} from "~/lib/utils/useBindUrl";
+import {useBindUrl} from "~/composeables/useBindUrl";
 
-const props = defineProps<{ name: string }>()
+type BooleanSettingsProps = {
+  name: string;
+  path: string;
+}
+
+const props = defineProps<BooleanSettingsProps>()
 const { query, updateQueryParam } = useBindUrl(props.name)
-
 </script>
 
 <template>

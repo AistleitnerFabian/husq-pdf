@@ -28,6 +28,8 @@
   },
   "devDependencies": {
     "@types/qs": "^6.9.15",
+    "commander": "^12.1.0",
+    "json-schema-to-typescript": "^14.0.4",
     "typescript": "^5.4.5"
   }
 }

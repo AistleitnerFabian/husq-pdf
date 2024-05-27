@@ -1,8 +1,10 @@
 <script setup lang="ts">
-
-import {ResizableHandle, ResizablePanelGroup, ResizablePanel} from "~/components/ui/resizable";
-import schema from "assets/schemas/schema.json"
+import {ResizableHandle, ResizablePanel, ResizablePanelGroup} from "~/components/ui/resizable";
 import {previewComponents} from "~/lib/utils/preview-components";
+
+const response = await fetch("schema.json")
+const schema = await response.json()
+const component = previewComponents["object"]
 </script>
 
 <template>
@@ -10,7 +12,7 @@ import {previewComponents} from "~/lib/utils/preview-components";
     <ResizablePanelGroup direction="horizontal" class="h-full rounded-lg border">
       <ResizablePanel id="handle-demo-panel-1" :default-size="25">
         <div class="p-4 space-y-2 text-foreground">
-          <component :is="previewComponents[schema.type]" :schema="schema" name="root" />
+          <component :is="component" :schema="schema" path="" />
         </div>
       </ResizablePanel>
       <ResizableHandle id="handle-demo-handle-1"/>

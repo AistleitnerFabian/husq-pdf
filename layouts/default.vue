@@ -1,4 +1,3 @@
 <template>
-  default
   <slot />
 </template>
