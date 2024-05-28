@@ -33,7 +33,7 @@ function refresh() {
 </script>
 
 <template>
-  <div class="dark text-foreground bg-background">
+  <div class="text-foreground bg-background">
     <div class="px-4 pb-4 h-screen flex flex-col">
       <AppHeader/>
       <ResizablePanelGroup direction="horizontal" class="rounded-lg border flex-1">
@@ -52,15 +52,10 @@ function refresh() {
             </div>
           </div>
         </ResizablePanel>
-        <ResizableHandle/>
-        <ResizablePanel :default-size="50">
-          <NuxtLayout name="preview">
-            <slot/>
-          </NuxtLayout>
-        </ResizablePanel>
+
         <ResizableHandle/>
         <ResizablePanel :default-size="25">
-          <div class="p-4 space-y-3 h-full overflow-y-auto">
+          <div class="p-4 space-y-4 h-full overflow-y-auto">
             <h2 class="text-sm">Property editor</h2>
             <Separator />
             <div v-if="selectionRef">
@@ -71,6 +66,13 @@ function refresh() {
               />
             </div>
           </div>
+        </ResizablePanel>
+
+        <ResizableHandle/>
+        <ResizablePanel :default-size="50">
+          <NuxtLayout name="preview">
+            <slot/>
+          </NuxtLayout>
         </ResizablePanel>
       </ResizablePanelGroup>
     </div>
