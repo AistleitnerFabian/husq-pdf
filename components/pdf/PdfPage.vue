@@ -16,7 +16,8 @@
 }
 
 .content {
-  margin: 20mm;
+  margin-top: 20mm;
+  margin-left: 10mm;
 }
 
 </style>
