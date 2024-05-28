@@ -1,5 +1,5 @@
 import {useRoute, useRouter} from "vue-router";
-import {Mode} from "~/composeables/useLayoutMode";
+import {Mode} from "~/composables/useLayoutMode";
 
 export function useBindUrl(queryKey: string) {
     const route = useRoute()

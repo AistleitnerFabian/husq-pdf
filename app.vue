@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import {useLayoutMode} from "~/composeables/useLayoutMode";
+import {useLayoutMode} from "~/composables/useLayoutMode";
 
 const mode = useLayoutMode()
 

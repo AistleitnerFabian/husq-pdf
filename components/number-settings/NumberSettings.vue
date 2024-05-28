@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {useBindUrl} from "~/composeables/useBindUrl";
+import {useBindUrl} from "~/composables/useBindUrl";
 import {capitalize, computed} from "vue";
 
 type NumberSettingsProps = {

@@ -2,6 +2,7 @@
 import {ResizableHandle, ResizablePanel, ResizablePanelGroup} from "~/components/ui/resizable";
 import {previewComponents} from "~/lib/utils/preview-components";
 import {watchDebounced} from "@vueuse/core";
+import AppHeader from "~/components/header/app-header.vue";
 
 const route = useRoute()
 const response = await fetch("schema.json")
@@ -21,20 +22,23 @@ function refresh() {
 </script>
 
 <template>
-  <div class="dark p-4 h-screen bg-background">
-    <ResizablePanelGroup direction="horizontal" class="h-full rounded-lg border">
-      <ResizablePanel id="handle-demo-panel-1" :default-size="40">
-        <div class="p-4 space-y-2 text-foreground">
-          <component :is="component" :schema="schema" path="" name="" />
-          <Button @click="refresh">Refresh</Button>
-        </div>
-      </ResizablePanel>
-      <ResizableHandle id="handle-demo-handle-1"/>
-      <ResizablePanel id="handle-demo-panel-2" :default-size="60">
-        <NuxtLayout name="preview">
-          <slot/>
-        </NuxtLayout>
-      </ResizablePanel>
-    </ResizablePanelGroup>
+  <div class="dark text-foreground bg-background">
+    <div class="px-4 pb-4 h-screen flex flex-col">
+      <AppHeader/>
+      <ResizablePanelGroup direction="horizontal" class="rounded-lg border flex-1">
+        <ResizablePanel :default-size="40">
+          <div class="p-4 space-y-2">
+            <component :is="component" :schema="schema" path="" name="" />
+            <Button @click="refresh">Refresh</Button>
+          </div>
+        </ResizablePanel>
+        <ResizableHandle/>
+        <ResizablePanel :default-size="60">
+          <NuxtLayout name="preview">
+            <slot/>
+          </NuxtLayout>
+        </ResizablePanel>
+      </ResizablePanelGroup>
+    </div>
   </div>
 </template>
