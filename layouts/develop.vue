@@ -2,6 +2,7 @@
 import {ResizableHandle, ResizablePanel, ResizablePanelGroup} from "~/components/ui/resizable";
 import {previewComponents} from "~/lib/utils/preview-components";
 import {watchDebounced} from "@vueuse/core";
+
 const route = useRoute()
 
 const response = await fetch("schema.json")

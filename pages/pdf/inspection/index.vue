@@ -11,7 +11,8 @@
 </template>
 
 <script setup lang="ts">
-  import { type Schema } from "@/types/pdf/inspection"
-  import {usePageData} from "@/composeables/usePageData";
-  let pageData = () => usePageData<Schema>()
+import {type Schema} from "@/types/pdf/inspection"
+import {usePageData} from "@/composeables/usePageData";
+
+let pageData = () => usePageData<Schema>()
 </script>
