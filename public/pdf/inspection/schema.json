@@ -1,19 +1,14 @@
 {
   "type": "object",
   "properties": {
-    "name": {
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
       "type": "string"
     },
     "age": {
       "type": "integer"
-    },
-    "tags": {
-      "type": "array",
-      "items": [
-        {
-          "type": "string"
-        }
-      ]
     },
     "address": {
       "type": "object",

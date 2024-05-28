@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "@nuxtjs/tailwindcss": "^6.12.0",
-    "@vueuse/core": "^10.9.0",
+    "@tato30/vue-pdf": "^1.10.0",
+    "@vueuse/core": "^10.10.0",
     "ajv": "^8.14.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
@@ -27,6 +28,7 @@
     "vue-router": "^4.3.2"
   },
   "devDependencies": {
+    "@types/pdfobject": "^2.2.5",
     "@types/qs": "^6.9.15",
     "commander": "^12.1.0",
     "json-schema-to-typescript": "^14.0.4",

@@ -16,8 +16,8 @@ type ArraySettingsProps = {
 }
 
 const props = defineProps<ArraySettingsProps>()
-const items = [...props.schema.items]
 const title = computed(() => capitalize(props.name))
+const items = reactive(props.schema.items)
 </script>
 
 <template>
