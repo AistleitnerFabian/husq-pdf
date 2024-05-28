@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {Label} from "radix-vue";
-import {useBindUrl} from "~/composeables/useBindUrl";
+import {useBindUrl} from "~/composables/useBindUrl";
 
 type BooleanSettingsProps = {
   name: string;

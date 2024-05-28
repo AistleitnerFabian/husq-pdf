@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {previewComponents} from "~/lib/utils/preview-components";
-import {usePageData} from "~/composeables/usePageData";
+import {usePageData} from "~/composables/usePageData";
 
 type SchemaType = {
   type: string;
