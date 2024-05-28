@@ -1,36 +1,67 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
-    "firstName": {
-      "type": "string"
+    "style": {
+      "type": "string",
+      "enum": ["default", "new-york"]
     },
-    "lastName": {
-      "type": "string"
+    "typescript": {
+      "type": "boolean",
+      "default": true
     },
-    "age": {
-      "type": "integer"
-    },
-    "array": {
+    "options": {
       "type": "array",
       "items": [
         {
-          "type": "string"
+          "type": "array",
+          "items": [
+            {
+              "type": "string"
+            }
+          ]
         }
       ]
     },
-    "address": {
+    "tailwind": {
       "type": "object",
       "properties": {
-        "street": {
+        "config": {
           "type": "string"
         },
-        "zip": {
-          "type": "integer"
+        "css": {
+          "type": "string"
         },
-        "city": {
+        "baseColor": {
+          "type": "string"
+        },
+        "cssVariables": {
+          "type": "boolean",
+          "default": true
+        }
+      },
+      "required": ["config", "css", "baseColor", "cssVariables"]
+    },
+    "framework": {
+      "type": "string",
+      "enum": ["nuxt", "vite", "laravel", "astro"],
+      "default": "vite"
+    },
+    "aliases": {
+      "type": "object",
+      "properties": {
+        "utils": {
+          "type": "string"
+        },
+        "components": {
+          "type": "string"
+        },
+        "ui": {
           "type": "string"
         }
-      }
+      },
+      "required": ["utils", "components"]
     }
-  }
+  },
+  "required": ["style", "tailwind", "aliases"]
 }

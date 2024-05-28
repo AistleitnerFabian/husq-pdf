@@ -6,14 +6,21 @@
  */
 
 export interface Schema {
-  firstName?: string;
-  lastName?: string;
-  age?: number;
-  array?: [] | [[] | [string]];
-  address?: {
-    street?: string;
-    zip?: number;
-    city?: string;
+  style: "default" | "new-york";
+  typescript?: boolean;
+  options?: [] | [[] | [string]];
+  tailwind: {
+    config: string;
+    css: string;
+    baseColor: string;
+    cssVariables: boolean;
+    [k: string]: unknown;
+  };
+  framework?: "nuxt" | "vite" | "laravel" | "astro";
+  aliases: {
+    utils: string;
+    components: string;
+    ui?: string;
     [k: string]: unknown;
   };
   [k: string]: unknown;
