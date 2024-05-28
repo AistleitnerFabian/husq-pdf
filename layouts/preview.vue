@@ -21,7 +21,7 @@ import {Skeleton} from "~/components/ui/skeleton";
 async function getPdfFile(): Promise<any> {
   const pageData = usePageData()
 
-  const response = await fetch("/api/generate/inspection", {
+  const response = await fetch(`/api/generate/${useCurrentDocument()}`, {
     method: "POST",
     body: JSON.stringify(pageData),
     headers: {

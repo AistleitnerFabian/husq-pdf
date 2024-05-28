@@ -8,7 +8,7 @@
           class="w-[250px] justify-between"
       >
         {{
-          currentDocument?.name
+          currentDocument
         }}
         <ChevronsUpDown class="ml-2 h-4 w-4 shrink-0 opacity-50"/>
       </Button>
@@ -29,7 +29,7 @@
               <Check
                   :class="cn(
                   'ml-auto h-4 w-4',
-                  currentDocument?.name === pdf.value.name ? 'opacity-100' : 'opacity-0',
+                  currentDocument === pdf.label ? 'opacity-100' : 'opacity-0',
                 )"
               />
             </CommandItem>
@@ -43,25 +43,24 @@
 <script setup lang="ts">
 import {Check, ChevronsUpDown} from 'lucide-vue-next'
 import {cn} from "~/lib/utils/ui";
-import type {RouteLocationNormalizedLoaded, RouteRecordNormalized} from "vue-router";
-const documentRoutes: Ref<{ value: RouteRecordNormalized, label: string }[]> = ref([])
+const documentRoutes: Ref<{ value: string, label: string }[]> = ref([])
 
 const open = ref(false)
-const currentDocument: Ref<RouteLocationNormalizedLoaded | undefined> = ref()
+const currentDocument: Ref<string | undefined> = ref("")
 
 
 onMounted(() => {
   documentRoutes.value = useRouter().getRoutes()
       .filter(route => route.path.startsWith('/pdf/'))
       .map((route) => {
-        return {value: route, label: route.name?.toString() || "unnamed"}
+        return {value: route.path, label: route.path.split('/').filter(Boolean).pop()!}
       })
 
-  currentDocument.value = useRoute()
+  currentDocument.value = useCurrentDocument()
 })
 
 const selectDocument = (ev: any) => {
-  navigateTo(`${(ev.detail.value as RouteRecordNormalized).path}#develop`, {external: true})
+  navigateTo(`${ev.detail.value}#develop`, {external: true})
   open.value = false
 }</script>
 
