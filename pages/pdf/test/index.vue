@@ -20,9 +20,8 @@
 </template>
 
 <script setup lang="ts">
-import {type Schema} from "@/types/pdf/test"
-import {usePageData} from "@/composeables/usePageData";
-import PdfPage from "~/components/pdf/PdfPage.vue";
-
-let pageData = () => usePageData<Schema>()
+  import { type Schema } from "@/types/pdf/test"
+  import {usePageData} from "@/composeables/usePageData";
+  import PdfPage from "~/components/pdf/PdfPage.vue";
+  let pageData = () => usePageData<Schema>()
 </script>

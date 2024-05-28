@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import {previewComponents} from "~/lib/utils/preview-components";
-import {computed} from "vue";
-import {capitalize} from "~/lib/utils/ui";
+import {usePageData} from "~/composeables/usePageData";
 
 type SchemaType = {
   type: string;
@@ -15,14 +14,19 @@ type ArraySettingsProps = {
   schema: SchemaType
 }
 
+
 const props = defineProps<ArraySettingsProps>()
-const title = computed(() => capitalize(props.name))
-const items = reactive(props.schema.items)
+const model = usePageData() as any
+const items = ref<any[]>(model[props.path] ?? [])
+const record = props.schema.items[0]
+
+const addItem = () => {
+  items.value.push(record)
+}
 </script>
 
 <template>
-  <h1>{{title}}</h1>
-  <div v-for="(record, index) in items" class="space-y-2">
+  <div v-for="(_, index) in items" class="space-y-2">
     <component
         :name="index.toString()"
         :path="`${props.path}[${index}]`"
@@ -31,4 +35,5 @@ const items = reactive(props.schema.items)
         :key="props.name"
     />
   </div>
+  <Button @click="addItem">+</Button>
 </template>

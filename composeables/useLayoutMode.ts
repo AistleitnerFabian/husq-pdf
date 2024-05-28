@@ -1,5 +1,4 @@
-import {computed} from 'vue'
-
+import { computed } from 'vue'
 export enum Mode {
     PREVIEW = 'preview',
     DEVELOP = 'develop',

@@ -9,6 +9,7 @@ export interface Schema {
   firstName?: string;
   lastName?: string;
   age?: number;
+  array?: [] | [[] | [string]];
   address?: {
     street?: string;
     zip?: number;

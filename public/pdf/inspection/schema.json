@@ -10,6 +10,14 @@
     "age": {
       "type": "integer"
     },
+    "array": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string"
+        }
+      ]
+    },
     "address": {
       "type": "object",
       "properties": {
