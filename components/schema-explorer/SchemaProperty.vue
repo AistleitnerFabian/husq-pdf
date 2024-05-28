@@ -2,13 +2,9 @@
 
 import SchemaElementButton from "~/components/schema-explorer/SchemaElementButton.vue";
 import {TextCursorInput} from "lucide-vue-next";
+import type {SchemaExplorerProps} from "./";
 
-type SchemaPropertyProps = {
-  schema: SchemaPrimitiveType;
-  name: string;
-  level: number;
-}
-
+type SchemaPropertyProps = SchemaExplorerProps<SchemaPrimitiveType>
 const props = defineProps<SchemaPropertyProps>()
 </script>
 
@@ -18,6 +14,8 @@ const props = defineProps<SchemaPropertyProps>()
       :level="props.level"
       :icon="TextCursorInput"
       :subtext="schema.type"
+      :schema="props.schema"
+      :path="props.path"
   />
 </template>
 

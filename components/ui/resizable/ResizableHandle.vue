@@ -1,8 +1,13 @@
 <script setup lang="ts">
-import { type HTMLAttributes, computed } from 'vue'
-import { SplitterResizeHandle, type SplitterResizeHandleEmits, type SplitterResizeHandleProps, useForwardPropsEmits } from 'radix-vue'
-import { GripVertical } from 'lucide-vue-next'
-import { cn } from '@/lib/utils/ui'
+import {computed, type HTMLAttributes} from 'vue'
+import {
+  SplitterResizeHandle,
+  type SplitterResizeHandleEmits,
+  type SplitterResizeHandleProps,
+  useForwardPropsEmits
+} from 'radix-vue'
+import {GripVertical} from 'lucide-vue-next'
+import {cn} from '@/lib/utils/ui'
 
 const props = defineProps<SplitterResizeHandleProps & { class?: HTMLAttributes['class'], withHandle?: boolean }>()
 const emits = defineEmits<SplitterResizeHandleEmits>()

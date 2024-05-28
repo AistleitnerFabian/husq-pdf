@@ -13,7 +13,7 @@
         <ChevronsUpDown class="ml-2 h-4 w-4 shrink-0 opacity-50"/>
       </Button>
     </PopoverTrigger>
-    <PopoverContent class="dark w-[250px] p-0">
+    <PopoverContent class="w-[250px] p-0">
       <Command>
         <CommandInput class="h-9" placeholder="Search document..."/>
         <CommandEmpty>No documents found.</CommandEmpty>
@@ -43,6 +43,7 @@
 <script setup lang="ts">
 import {Check, ChevronsUpDown} from 'lucide-vue-next'
 import {cn} from "~/lib/utils/ui";
+
 const documentRoutes: Ref<{ value: string, label: string }[]> = ref([])
 
 const open = ref(false)

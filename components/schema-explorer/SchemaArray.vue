@@ -5,33 +5,33 @@
       :icon="Brackets"
       :level="props.level"
       :is-open="isOpen"
+      :path="props.path"
       :collapsable="true"
-      @click="isOpen = !isOpen"
+      :schema="props.schema"
+      @collapse="isOpen = !isOpen"
   />
-  <div v-show="isOpen" v-for="item in props.schema.items">
-    <div>
+  <div v-show="isOpen">
+    <div  v-for="(item, index) in props.schema.items">
       <component
-          :is="mapping[item.type]"
+          :is="explorerMapping[item.type]"
           :schema="item"
-          :name="name"
+          :name="`[${index}]`"
           :level="props.level + 1"
+          :path="`${props.path}[${index}]`"
       />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import {mapping} from "~/lib/utils/mapping";
-import SchemaElementButton from "~/components/schema-explorer/SchemaElementButton.vue";
+import {explorerMapping} from "~/lib/utils/explorer-mapping";
+import SchemaElementButton from "./SchemaElementButton.vue";
 import {Brackets} from "lucide-vue-next";
+import type {SchemaExplorerProps} from "./";
 
-type SchemaExplorerProps = {
-  schema: SchemaArrayType;
-  name: string;
-  level: number;
-}
+type SchemaArrayProps = SchemaExplorerProps<SchemaArrayType>
 
-const props = defineProps<SchemaExplorerProps>()
+const props = defineProps<SchemaArrayProps>()
 const isOpen = ref(true)
 </script>
 

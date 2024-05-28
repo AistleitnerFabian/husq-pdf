@@ -1,14 +1,8 @@
 <script setup lang="ts">
-import { type HTMLAttributes, computed } from 'vue'
-import {
-  SelectItem,
-  SelectItemIndicator,
-  type SelectItemProps,
-  SelectItemText,
-  useForwardProps,
-} from 'radix-vue'
-import { Check } from 'lucide-vue-next'
-import { cn } from '@/lib/utils/ui'
+import {computed, type HTMLAttributes} from 'vue'
+import {SelectItem, SelectItemIndicator, type SelectItemProps, SelectItemText, useForwardProps,} from 'radix-vue'
+import {Check} from 'lucide-vue-next'
+import {cn} from '@/lib/utils/ui'
 
 const props = defineProps<SelectItemProps & { class?: HTMLAttributes['class'] }>()
 

@@ -1,4 +1,4 @@
-import { generatePdf } from "~/server/utils/generatePdf";
+import {generatePdf} from "~/server/utils/generatePdf";
 import {toQueryString} from "~/server/utils/toQueryString";
 
 export default defineEventHandler(async (event) => {

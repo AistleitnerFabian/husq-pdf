@@ -14,12 +14,7 @@
       "type": "array",
       "items": [
         {
-          "type": "array",
-          "items": [
-            {
-              "type": "string"
-            }
-          ]
+          "type": "integer"
         }
       ]
     },
@@ -36,8 +31,22 @@
           "type": "string"
         },
         "cssVariables": {
-          "type": "boolean",
+          "type": "integer",
           "default": true
+        },
+        "target": {
+          "type": "object",
+          "properties": {
+            "eslint": {
+              "type": "string"
+            },
+            "node": {
+              "type": "integer"
+            },
+            "version": {
+              "type": "string"
+            }
+          }
         }
       },
       "required": ["config", "css", "baseColor", "cssVariables"]
