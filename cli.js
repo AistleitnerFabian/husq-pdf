@@ -31,7 +31,7 @@ function action(name, opts) {
 
 <script setup lang="ts">
   import { type Schema } from "@/types/pdf/${name}"
-  import {usePageData} from "@/composeables/usePageData";
+  import {usePageData} from "@/composeable/usePageData";
   let pageData = () => usePageData<Schema>()
 </script>`
 

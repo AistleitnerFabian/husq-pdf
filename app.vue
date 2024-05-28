@@ -1,6 +1,6 @@
 <template>
   <NuxtLayout :name="mode">
-    <RouterView/>
+    <NuxtPage/>
   </NuxtLayout>
 </template>
 
