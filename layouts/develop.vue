@@ -10,7 +10,10 @@ const route = useRoute()
 const response = await fetch("schema.json")
 const schema: SchemaType = await response.json()
 const documentName = useCurrentDocument()
-const selectionRef = ref<EditorSelection<SchemaType>>()
+
+const storedSelectionString = localStorage.getItem("__hqpdf_selection")
+const storedSelection = JSON.parse(storedSelectionString ?? "")
+const selectionRef = ref<EditorSelection<SchemaType>>(storedSelection)
 
 provide<EditorSelectionProvider>("__hqpdf_selection", {
   selection: selectionRef,
@@ -52,7 +55,12 @@ function refresh() {
             </div>
           </div>
         </ResizablePanel>
-
+        <ResizableHandle/>
+        <ResizablePanel :default-size="50">
+          <NuxtLayout name="preview">
+            <slot/>
+          </NuxtLayout>
+        </ResizablePanel>
         <ResizableHandle/>
         <ResizablePanel :default-size="25">
           <div class="p-4 space-y-4 h-full overflow-y-auto">
@@ -66,13 +74,6 @@ function refresh() {
               />
             </div>
           </div>
-        </ResizablePanel>
-
-        <ResizableHandle/>
-        <ResizablePanel :default-size="50">
-          <NuxtLayout name="preview">
-            <slot/>
-          </NuxtLayout>
         </ResizablePanel>
       </ResizablePanelGroup>
     </div>

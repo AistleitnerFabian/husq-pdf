@@ -10,12 +10,16 @@ const { query, updateQueryParam } = useBindUrl(props.selection.path)
 </script>
 
 <template>
-  <div class="space-y-1">
+  <div class="space-y-0.5">
     <property-editor-header
         :name="props.selection.name"
         :type="props.selection.schema.type"
         :icon="TextCursorInput"
     />
+
+    <span class="text-xs text-zinc-500" v-if="props.selection.schema.description">
+      {{ props.selection.schema.description }}
+    </span>
 
     <Input
         v-model="query"

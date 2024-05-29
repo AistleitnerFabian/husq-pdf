@@ -21,21 +21,20 @@ const select = () => {
     name: props.text
   })
 }
-
-const isSelected = ref(false)
+const getIsSelected = () => (
+    selection?.selection.value?.path === props.path
+)
+const isSelected = ref(getIsSelected())
 watch(
     () => selection?.selection.value,
-    () => {isSelected.value = selection?.selection.value?.path === props.path}
+    () => {isSelected.value = getIsSelected()}
 )
 </script>
 
 <template>
   <div
       :style="{ paddingLeft: props.level * 1.25 + 'rem'}"
-      :class="cn(
-          'w-full rounded h-7 pr-4',
-         'select-none flex items-center',
-      )">
+      class="w-full rounded h-7 pr-4 select-none flex items-center">
     <Button
         @click="$emit('collapse')"
         variant="ghost"
@@ -62,7 +61,3 @@ watch(
     </Button>
   </div>
 </template>
-
-<style scoped>
-
-</style>

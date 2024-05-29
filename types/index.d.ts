@@ -1,15 +1,18 @@
 type SchemaObjectType = {
     type: "object";
+    description?: string
     properties: Record<string, SchemaType>,
 }
 
 type SchemaArrayType = {
     type: "array";
+    description?: string
     items: SchemaType[]
 }
 
 type SchemaPrimitiveType = {
     type: "string" | "integer"
+    description?: string
 }
 
 type SchemaType = |
