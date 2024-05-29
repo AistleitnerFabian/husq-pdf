@@ -11,12 +11,10 @@
             <div class="rounded border bg-muted p-2 pr-4">
                <span class="font-mono text-xs">
                   <span class="text-primary">curl</span>
-                  <span class="text-primary opacity-50">--request</span> POST \
+                  <span class="text-primary opacity-50"> --request</span> POST \
                   <br />
                   <span class="text-primary opacity-50">--url</span>
-                  http://localhost:3000/api/generate/{{
-                     useCurrentDocument()
-                  }}
+                  http://localhost:3000/api/generate/{{ useCurrentDocument() }}
                   \
                   <br />
                   <span class="text-primary opacity-50">--header</span>

@@ -1,10 +1,11 @@
 <template>
-   <div class="mx-4 flex h-10 flex-row items-center justify-between border-b">
-      <span>{{ props.left }}</span>
-      <span>{{ props.center }}</span>
-      <span>{{ props.right }}</span>
+   <div class="pdf-header">
+      <slot />
    </div>
 </template>
-<script setup lang="ts">
-const props = defineProps<{ left: string; center: string; right: string }>();
-</script>
+<style>
+.pdf-header {
+   height: var(--pdf-header-height);
+   print-color-adjust: exact;
+}
+</style>

@@ -1,34 +1,59 @@
 <template>
-   <div id="print-content">
-      <div class="header">
+   <div class="document">
+      <div class="document-header">
          <slot name="header" />
       </div>
-      <div class="content">
-         <slot />
-      </div>
-      <div class="footer">
+
+      <div class="document-footer">
          <slot name="footer" />
       </div>
+
+      <table class="size-full">
+         <thead>
+            <tr>
+               <td>
+                  <div class="document-header-space" />
+               </td>
+            </tr>
+         </thead>
+
+         <tbody>
+            <tr>
+               <td>
+                  <slot name="default" />
+               </td>
+            </tr>
+         </tbody>
+
+         <tfoot>
+            <tr>
+               <td>
+                  <div class="document-footer-space" />
+               </td>
+            </tr>
+         </tfoot>
+      </table>
    </div>
 </template>
 
 <script setup lang="ts">
 const props = defineProps<{
    headerHeight?: string;
+   footerHeight?: string;
    margin?: string;
    format?: "A4" | "A3" | "A5";
    orientation?: "portrait" | "landscape";
 }>();
 
-const format = props.format ?? "A4";
-const orientation = props.orientation ?? "portrait";
-const headerHeight = props.headerHeight ?? "0cm";
-
 const injectPrintStyles = () => {
    const styleElement = document.createElement("style");
    styleElement.innerHTML = `
-        @page {
-          size: ${format} ${orientation};
+        :root {
+          --pdf-margin: ${props.margin};
+          --pdf-header-height: ${props.headerHeight};
+          --pdf-format: ${props.format};
+          --pdf-orientation: ${props.orientation};
+          --pdf-footer-height: ${props.footerHeight};
         }
   `;
    document.head.appendChild(styleElement);
@@ -39,27 +64,25 @@ onMounted(() => {
 </script>
 
 <style scoped>
-@media print {
-   .header {
-      display: block;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-   }
+.document {
+   print-color-adjust: exact;
 }
-
-.content {
-   margin-top: v-bind(headerHeight);
+.document-header,
+.document-header-space {
+   height: var(--pdf-header-height);
 }
-
-@media print {
-   .footer {
-      display: block;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-   }
+.document-footer,
+.document-footer-space {
+   height: var(--pdf-footer-height);
+}
+.document-header {
+   position: fixed;
+   top: 0;
+   width: 100%;
+}
+.document-footer {
+   position: fixed;
+   bottom: 0;
+   width: 100%;
 }
 </style>

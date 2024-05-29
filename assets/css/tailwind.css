@@ -104,3 +104,30 @@
       @apply overflow-hidden bg-background text-foreground;
    }
 }
+
+@media print {
+   :root {
+      --pdf-margin: 0mm;
+      --pdf-header-height: 0mm;
+      --pdf-format: A4;
+      --pdf-orientation: portrait;
+      --pdf-footer-height: 0mm;
+   }
+
+   thead {
+      display: table-header-group;
+   }
+
+   tfoot {
+      display: table-footer-group;
+   }
+
+   body {
+      margin: 0;
+   }
+
+   @page {
+      size: var(--pdf-format) var(--pdf-orientation);
+      margin: var(--pdf-margin);
+   }
+}
