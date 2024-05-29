@@ -5,7 +5,7 @@ export default defineNuxtConfig({
 
    dir: {
       pages: "documents",
-      static: "schema"
+      static: "schema",
    },
    vite: {
       optimizeDeps: {

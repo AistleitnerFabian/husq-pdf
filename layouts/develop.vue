@@ -6,9 +6,9 @@ import {
 } from "~/components/ui/resizable";
 import { watchDebounced } from "@vueuse/core";
 import { explorerMapping } from "~/lib/utils/explorer-mapping";
-import AppHeader from "~/components/header/app-header.vue";
 import { Separator } from "~/components/ui/separator";
 import { editorMapping } from "~/lib/utils/editor-mapping";
+import AppHeader from "~/components/header/AppHeader.vue";
 
 const route = useRoute();
 

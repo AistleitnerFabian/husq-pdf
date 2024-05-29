@@ -14,6 +14,6 @@
 </template>
 
 <script setup lang="ts">
-import DocumentSelect from "~/components/header/document-select.vue";
-import ThemeSwitch from "~/components/header/theme-switch.vue";
+import ThemeSwitch from "~/components/header/ThemeSwitch.vue";
+import DocumentSelect from "~/components/header/DocumentSelect.vue";
 </script>

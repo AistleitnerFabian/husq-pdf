@@ -1,101 +1,101 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "type": "object",
-  "properties": {
-    "style": {
-      "type": "string",
-      "enum": ["default", "new-york"]
-    },
-    "typescript": {
-      "type": "boolean",
-      "default": true
-    },
-    "options": {
-      "type": "array",
-      "items": [
-        {
-          "type": "integer"
-        }
-      ]
-    },
-    "dynamic": {
-      "type": "array",
-      "items": [
-        {
-          "type": "object",
-          "properties": {
-            "key": {
-              "type": "string"
-            },
-            "value": {
-              "type": "integer"
-            },
-            "tags": {
-              "type": "array",
-              "items": [
-                {
-                  "type": "string"
-                }
-              ]
-            }
-          }
-        }
-      ]
-    },
-    "tailwind": {
-      "type": "object",
-      "properties": {
-        "config": {
-          "type": "string",
-          "description": "This is a description"
-        },
-        "css": {
-          "type": "string"
-        },
-        "baseColor": {
-          "type": "string"
-        },
-        "cssVariables": {
-          "type": "integer",
-          "default": true
-        },
-        "target": {
-          "type": "object",
-          "properties": {
-            "eslint": {
-              "type": "string"
-            },
-            "node": {
-              "type": "integer"
-            },
-            "version": {
-              "type": "string"
-            }
-          }
-        }
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "type": "object",
+   "properties": {
+      "style": {
+         "type": "string",
+         "enum": ["default", "new-york"]
       },
-      "required": ["config", "css", "baseColor", "cssVariables"]
-    },
-    "framework": {
-      "type": "string",
-      "enum": ["nuxt", "vite", "laravel", "astro"],
-      "default": "vite"
-    },
-    "aliases": {
-      "type": "object",
-      "properties": {
-        "utils": {
-          "type": "string"
-        },
-        "components": {
-          "type": "string"
-        },
-        "ui": {
-          "type": "string"
-        }
+      "typescript": {
+         "type": "boolean",
+         "default": true
       },
-      "required": ["utils", "components"]
-    }
-  },
-  "required": ["style", "tailwind", "aliases"]
+      "options": {
+         "type": "array",
+         "items": [
+            {
+               "type": "integer"
+            }
+         ]
+      },
+      "dynamic": {
+         "type": "array",
+         "items": [
+            {
+               "type": "object",
+               "properties": {
+                  "key": {
+                     "type": "string"
+                  },
+                  "value": {
+                     "type": "integer"
+                  },
+                  "tags": {
+                     "type": "array",
+                     "items": [
+                        {
+                           "type": "string"
+                        }
+                     ]
+                  }
+               }
+            }
+         ]
+      },
+      "tailwind": {
+         "type": "object",
+         "properties": {
+            "config": {
+               "type": "string",
+               "description": "This is a description"
+            },
+            "css": {
+               "type": "string"
+            },
+            "baseColor": {
+               "type": "string"
+            },
+            "cssVariables": {
+               "type": "integer",
+               "default": true
+            },
+            "target": {
+               "type": "object",
+               "properties": {
+                  "eslint": {
+                     "type": "string"
+                  },
+                  "node": {
+                     "type": "integer"
+                  },
+                  "version": {
+                     "type": "string"
+                  }
+               }
+            }
+         },
+         "required": ["config", "css", "baseColor", "cssVariables"]
+      },
+      "framework": {
+         "type": "string",
+         "enum": ["nuxt", "vite", "laravel", "astro"],
+         "default": "vite"
+      },
+      "aliases": {
+         "type": "object",
+         "properties": {
+            "utils": {
+               "type": "string"
+            },
+            "components": {
+               "type": "string"
+            },
+            "ui": {
+               "type": "string"
+            }
+         },
+         "required": ["utils", "components"]
+      }
+   },
+   "required": ["style", "tailwind", "aliases"]
 }

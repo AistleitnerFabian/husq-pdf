@@ -3,9 +3,11 @@
       <template #header>
          <pdf-header left="Left" center="Mid" right="Right" />
       </template>
-      <pdf-page>
-         {{ pageData() }}
-         <h1 class="text-3xl">This is a preview: {{ pageData().firstName }}</h1>
+      <pdf-page header-height="200">
+         <div class="mt-20">
+            {{ pageData().framework }}
+            <h1 class="text-3xl">{{ pageData().style }}</h1>
+         </div>
       </pdf-page>
       <pdf-page>
          <h1 class="text-3xl">Lastname: {{ pageData().firstName }}</h1>
