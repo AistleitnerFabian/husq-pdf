@@ -6,17 +6,30 @@
    </div>
 </template>
 
-<style>
-@page {
-   size: A4;
+<script setup lang="ts">
+const props = defineProps<{
+   headerHeight: string;
+   format?: "A4" | "A3" | "A5";
+   orientation?: "portrait" | "landscape";
+}>();
 
-   @bottom-left {
-      content: counter(page);
-   }
-}
+const format = props.format ?? "A4";
+const orientation = props.orientation ?? "portrait";
 
-.content {
-   margin-top: 20mm;
-   margin-left: 10mm;
-}
-</style>
+const injectPrintStyles = () => {
+   const styleElement = document.createElement("style");
+   styleElement.innerHTML = `
+    @media print {
+      @page {
+        size: ${format} ${orientation};
+        margin: ${props.headerHeight};
+      }
+    }
+  `;
+   document.head.appendChild(styleElement);
+};
+
+onMounted(() => {
+   injectPrintStyles();
+});
+</script>
