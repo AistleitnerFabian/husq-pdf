@@ -1,6 +1,6 @@
 <template>
   <div class="size-full">
-    <ScrollArea :class="isInPreviewMode ? 'h-screen' : 'h-full'" class="bg-muted dark:bg-background">
+    <ScrollArea :class="isInPreviewMode ? 'h-screen' : 'h-full'" class="bg-muted dark:bg-card">
       <div v-if="pending" class="absolute left-1/2 z-10 mt-6 -translate-x-1/2">
         <div
             class="flex items-center gap-2 rounded-full border bg-background p-2 px-4  animate-in slide-in-from-top-3">
