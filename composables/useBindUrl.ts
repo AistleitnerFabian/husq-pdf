@@ -2,10 +2,9 @@ import { useRoute, useRouter } from "vue-router";
 import { Mode } from "~/composables/useLayoutMode";
 
 export function useBindUrl(queryKey: string) {
-   console.log("use bind url");
-   const route = useRoute();
-   const router = useRouter();
-   const query = ref<string>((route.query[queryKey] as string) || "");
+    const route = useRoute()
+    const router = useRouter()
+    const query = ref<string>(route.query[queryKey] as string || '')
 
    const updateQueryParam = () => {
       router.push({

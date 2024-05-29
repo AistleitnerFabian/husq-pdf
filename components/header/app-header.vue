@@ -3,14 +3,17 @@
       <div class="flex items-center gap-2">
          <div class="flex size-8 items-center justify-center rounded border">
             <span class="-translate-y-0.5 text-primary">qp</span>
-         </div>
-         <p>Husq.pdf</p>
       </div>
-
-      <DocumentSelect />
-   </div>
+      <p>Husq.pdf</p>
+    </div>
+    <div class="flex items-center gap-2">
+      <ThemeSwitch/>
+      <DocumentSelect/>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
 import DocumentSelect from "~/components/header/document-select.vue";
+import ThemeSwitch from "~/components/header/theme-switch.vue";
 </script>
