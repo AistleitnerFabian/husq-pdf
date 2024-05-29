@@ -68,8 +68,9 @@ const addItem = () => {
          </div>
       </div>
 
-      <Button variant="ghost" size="icon" @click="addItem">
+      <Button variant="ghost" class="ml-6 gap-x-2" size="xs" @click="addItem">
          <Plus class="size-4" />
+         <span>Add element</span>
       </Button>
    </div>
 </template>
