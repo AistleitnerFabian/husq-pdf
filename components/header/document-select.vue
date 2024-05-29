@@ -54,7 +54,7 @@ const currentDocument: Ref<string | undefined> = ref("");
 onMounted(() => {
    documentRoutes.value = useRouter()
       .getRoutes()
-      .filter((route) => route.path.startsWith("/pdf/"))
+      .filter((route) => route.name != "index")
       .map((route) => {
          return {
             value: route.path,

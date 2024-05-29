@@ -10,7 +10,7 @@ export default defineEventHandler(async (event) => {
          setResponseStatus(event, 400);
          return { error: "document name is required" };
       }
-      const documentPath = `http://localhost:3000/pdf/${document}?${toQueryString(body)}`;
+      const documentPath = `http://localhost:3000/${document}?${toQueryString(body)}`;
 
       const pdfBuffer = await generatePdf(documentPath);
 
