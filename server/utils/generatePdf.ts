@@ -11,7 +11,9 @@ export const generatePdf = async (url: string): Promise<Buffer> => {
       throw new Error("Document not found (404)");
    }
 
-   const pdfBuffer = await page.pdf({ format: "A4" });
+   const pdfBuffer = await page.pdf({
+      preferCSSPageSize: true,
+   });
 
    await browser.close();
    return pdfBuffer;
