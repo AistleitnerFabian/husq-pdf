@@ -12,7 +12,7 @@ const schema: SchemaType = await response.json()
 const documentName = useCurrentDocument()
 
 const storedSelectionString = localStorage.getItem("__hqpdf_selection")
-const storedSelection = JSON.parse(storedSelectionString ?? "")
+const storedSelection = JSON.parse(storedSelectionString ?? "null")
 const selectionRef = ref<EditorSelection<SchemaType>>(storedSelection)
 
 provide<EditorSelectionProvider>("__hqpdf_selection", {
