@@ -22,8 +22,8 @@
          "type": "object",
          "properties": {
             "config": {
-               "type": "string"
-            },
+               "type": "string",
+            "description": "This is a description"},
             "css": {
                "type": "string"
             },
