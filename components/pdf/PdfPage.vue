@@ -1,13 +1,15 @@
 <template>
-   <div :class="name">
+   <div :class="cn('print', name)">
       <slot />
    </div>
 </template>
 
 <script setup lang="ts">
+import { cn } from "~/lib/utils";
+
 const props = defineProps<{
    name: string;
-   headerHeight: string;
+   headerHeight?: string;
    format?: "A4" | "A3" | "A5";
    orientation?: "portrait" | "landscape";
 }>();
@@ -15,23 +17,19 @@ const props = defineProps<{
 const name = props.name;
 const format = props.format ?? "A4";
 const orientation = props.orientation ?? "portrait";
+const headerHeight = props.headerHeight ?? "0cm";
 
 const injectPrintStyles = () => {
    const styleElement = document.createElement("style");
    styleElement.innerHTML = `
-      @media print {
+        .${name} {
+          page: ${name};
+        }
+
         @page ${name} {
           size: ${format} ${orientation};
-          margin-top: ${props.headerHeight};
-          page-break-after: avoid !important;
-          page-break-before: avoid !important;
-          page-break-inside: avoid !important;
+          margin-top: ${headerHeight};
         }
-      }
-
-      .${name} {
-        page: ${name};
-      }
   `;
    document.head.appendChild(styleElement);
 };
