@@ -13,7 +13,7 @@
    <div
       v-for="[name, item] in Object.entries(props.schema.properties)"
       v-show="isOpen"
-      :key="`${props.path ? props.path + '.' : ''}${name}`"
+      :key="op(props.path, name)"
    >
       <div>
          <component
@@ -21,7 +21,7 @@
             :schema="item"
             :name="name"
             :level="props.level + 1"
-            :path="`${props.path ? props.path + '.' : ''}${name}`"
+            :path="op(props.path, name)"
          />
       </div>
    </div>
@@ -32,6 +32,7 @@ import { explorerMapping } from "~/lib/utils/explorer-mapping";
 import SchemaElementButton from "~/components/schema-explorer/SchemaElementButton.vue";
 import { Braces } from "lucide-vue-next";
 import type { SchemaExplorerProps } from "./index";
+import { op } from "~/lib/utils";
 
 type SchemaObjectProps = SchemaExplorerProps<SchemaObjectType>;
 const props = defineProps<SchemaObjectProps>();

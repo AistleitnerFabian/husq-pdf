@@ -3,14 +3,14 @@
       <div class="flex items-center gap-2">
          <div class="flex size-8 items-center justify-center rounded border">
             <span class="-translate-y-0.5 text-primary">qp</span>
+         </div>
+         <p>Husq.pdf</p>
       </div>
-      <p>Husq.pdf</p>
-    </div>
-    <div class="flex items-center gap-2">
-      <ThemeSwitch/>
-      <DocumentSelect/>
-    </div>
-  </div>
+      <div class="flex items-center gap-2">
+         <ThemeSwitch />
+         <DocumentSelect />
+      </div>
+   </div>
 </template>
 
 <script setup lang="ts">

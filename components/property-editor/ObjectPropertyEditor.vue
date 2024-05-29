@@ -17,7 +17,7 @@ const { value } = computed(() => separateFields(props.selection.schema));
       <component
          :is="editorMapping[schema.type]"
          v-for="[name, schema] in Object.entries(value.primitives)"
-         :key="props.selection.path + '.' + name"
+         :key="op(props.selection.path, name)"
          :selection="{
             path: op(props.selection.path, name),
             schema: schema,

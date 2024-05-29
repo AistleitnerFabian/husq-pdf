@@ -11,16 +11,13 @@
       @collapse="isOpen = !isOpen"
    />
    <div v-show="isOpen">
-      <div
-         v-for="(item, index) in props.schema.items"
-         :key="`${props.path}[${index}]`"
-      >
+      <div v-for="(_, index) in data" :key="ap(props.path, index)">
          <component
-            :is="explorerMapping[item.type]"
-            :schema="item"
-            :name="`[${index}]`"
+            :is="explorerMapping[itemSchema.type]"
+            :schema="itemSchema"
+            :name="`${name} ${index}`"
             :level="props.level + 1"
-            :path="`${props.path}[${index}]`"
+            :path="ap(props.path, index)"
          />
       </div>
    </div>
@@ -31,10 +28,17 @@ import { explorerMapping } from "~/lib/utils/explorer-mapping";
 import SchemaElementButton from "./SchemaElementButton.vue";
 import { Brackets } from "lucide-vue-next";
 import type { SchemaExplorerProps } from "./";
+import { watchPageData } from "~/composables/usePageData";
+import { ap, pathObj } from "~/lib/utils";
+import type { Ref } from "vue";
 
 type SchemaArrayProps = SchemaExplorerProps<SchemaArrayType>;
 
 const props = defineProps<SchemaArrayProps>();
+const pageData: Ref<any> = watchPageData();
+const data = computed(() => pathObj(props.path, pageData.value));
+
+const itemSchema = props.schema.items[0];
 const isOpen = ref(true);
 </script>
 
