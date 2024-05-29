@@ -20,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import { type Schema } from "@/types/pdf/inspection";
+import { type Schema } from "~/types/documents/inspection";
 import { usePageData } from "~/composables/usePageData";
 import Document from "~/components/pdf/Document.vue";
 

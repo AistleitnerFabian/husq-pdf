@@ -6,10 +6,10 @@ const cwd = process.cwd();
 const encoding = "utf8";
 
 function action(name, opts) {
-   const assetsDir = `${cwd}/public/pdf/${name}`;
+   const assetsDir = `${cwd}/schema/${name}`;
    const schemaPath = `${assetsDir}/schema.json`;
-   const typesPath = `${cwd}/types/pdf/${name}`;
-   const vueDir = `${cwd}/pages/pdf/${name}`;
+   const typesPath = `${cwd}/types/documents/${name}`;
+   const vueDir = `${cwd}/documents/${name}`;
    const vuePath = `${vueDir}/index.vue`;
 
    function generateTypes() {
