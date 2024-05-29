@@ -30,9 +30,9 @@ function action(name, opts) {
 </template>
 
 <script setup lang="ts">
-  import { type Schema } from "@/types/pdf/${name}"
+  import { type Schema } from "@/types/pdf/${name}";
   import {usePageData} from "@/composeable/usePageData";
-  let pageData = () => usePageData<Schema>()
+  let pageData = usePageData<Schema>()
 </script>`;
 
       if (!fs.existsSync(vueDir)) fs.mkdirSync(vueDir);
