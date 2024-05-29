@@ -3,9 +3,9 @@ import ArrayPropertyEditor from "~/components/property-editor/ArrayPropertyEdito
 import PrimitivePropertyEditor from "~/components/property-editor/PrimitivePropertyEditor.vue";
 
 export const editorMapping = {
-    "object": ObjectPropertyEditor,
-    "array": ArrayPropertyEditor,
-    "string": PrimitivePropertyEditor,
-    "integer": PrimitivePropertyEditor,
-    "boolean": PrimitivePropertyEditor
-}
+   object: ObjectPropertyEditor,
+   array: ArrayPropertyEditor,
+   string: PrimitivePropertyEditor,
+   integer: PrimitivePropertyEditor,
+   boolean: PrimitivePropertyEditor,
+};

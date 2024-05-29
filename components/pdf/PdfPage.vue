@@ -1,23 +1,22 @@
 <template>
-  <div class="break-before-page">
-    <div class="content">
-      <slot />
-    </div>
-  </div>
+   <div class="break-before-page">
+      <div class="content">
+         <slot />
+      </div>
+   </div>
 </template>
 
 <style>
 @page {
-  size: A4;
+   size: A4;
 
-  @bottom-left {
-    content: counter(page);
-  }
+   @bottom-left {
+      content: counter(page);
+   }
 }
 
 .content {
-  margin-top: 20mm;
-  margin-left: 10mm;
+   margin-top: 20mm;
+   margin-left: 10mm;
 }
-
 </style>

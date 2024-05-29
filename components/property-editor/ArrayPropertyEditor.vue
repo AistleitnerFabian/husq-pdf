@@ -1,18 +1,16 @@
 <script setup lang="ts">
-import {useBindUrl} from "~/composables/useBindUrl";
+import { useBindUrl } from "~/composables/useBindUrl";
 
 type ArrayPropertyEditorProps = {
-  selection: EditorSelection<SchemaArrayType>
-}
-const props = defineProps<ArrayPropertyEditorProps>()
-const { query } = useBindUrl(props.selection.path)
+   selection: EditorSelection<SchemaArrayType>;
+};
+const props = defineProps<ArrayPropertyEditorProps>();
+const { query } = useBindUrl(props.selection.path);
 </script>
 
 <template>
-  <h2 class="text-lg">Array</h2>
-  <span>{{query}}</span>
+   <h2 class="text-lg">Array</h2>
+   <span>{{ query }}</span>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

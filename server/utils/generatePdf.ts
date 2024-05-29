@@ -1,18 +1,18 @@
-import puppeteer from 'puppeteer';
+import puppeteer from "puppeteer";
 
 export const generatePdf = async (url: string): Promise<Buffer> => {
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
+   const browser = await puppeteer.launch();
+   const page = await browser.newPage();
 
-    const response = await page.goto(url, { waitUntil: 'networkidle0' });
+   const response = await page.goto(url, { waitUntil: "networkidle0" });
 
-    if (response!.status() === 404) {
-        await browser.close();
-        throw new Error('Document not found (404)');
-    }
+   if (response!.status() === 404) {
+      await browser.close();
+      throw new Error("Document not found (404)");
+   }
 
-    const pdfBuffer = await page.pdf({ format: 'A4' });
+   const pdfBuffer = await page.pdf({ format: "A4" });
 
-    await browser.close();
-    return pdfBuffer;
+   await browser.close();
+   return pdfBuffer;
 };

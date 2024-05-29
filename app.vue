@@ -1,12 +1,11 @@
 <template>
-  <NuxtLayout :name="mode">
-    <NuxtPage/>
-  </NuxtLayout>
+   <NuxtLayout :name="mode">
+      <NuxtPage />
+   </NuxtLayout>
 </template>
 
 <script setup lang="ts">
-import {useLayoutMode} from "~/composables/useLayoutMode";
+import { useLayoutMode } from "~/composables/useLayoutMode";
 
-const mode = useLayoutMode()
-
+const mode = useLayoutMode();
 </script>
