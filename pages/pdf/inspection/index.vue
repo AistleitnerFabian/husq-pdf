@@ -24,5 +24,5 @@ import {type Schema} from "@/types/pdf/inspection"
 import {usePageData} from "~/composables/usePageData";
 import Document from "~/components/pdf/Document.vue";
 
-let pageData = () => usePageData<Schema>()
+const pageData = () => usePageData<Schema>()
 </script>

@@ -36,7 +36,7 @@ function refresh() {
 </script>
 
 <template>
-  <div class="text-foreground bg-background">
+  <div class="text-foreground bg-background dark">
     <div class="px-4 pb-4 h-screen flex flex-col">
       <AppHeader/>
       <ResizablePanelGroup direction="horizontal" class="rounded-lg border flex-1">
@@ -69,8 +69,8 @@ function refresh() {
             <div v-if="selectionRef">
               <component
                   :is="editorMapping[selectionRef.schema.type]"
-                  :selection="selectionRef"
                   :key="selectionRef.path"
+                  :selection="selectionRef"
               />
             </div>
           </div>

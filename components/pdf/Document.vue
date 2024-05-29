@@ -1,13 +1,13 @@
 <template>
   <div id="print-content">
     <div class="header">
-      <slot name="header"></slot>
+      <slot name="header"/>
     </div>
     <div class="content">
-      <slot></slot>
+      <slot/>
     </div>
     <div class="footer">
-      <slot name="footer"></slot>
+      <slot name="footer"/>
     </div>
   </div>
 </template>

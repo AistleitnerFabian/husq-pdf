@@ -10,7 +10,7 @@
       :schema="props.schema"
       @collapse="isOpen = !isOpen"
   />
-  <div v-show="isOpen" v-for="[name, item] in Object.entries(props.schema.properties)">
+  <div v-for="[name, item] in Object.entries(props.schema.properties)" v-show="isOpen" :key="`${props.path ? props.path + '.' : ''}${name}`">
     <div>
       <component
           :is="explorerMapping[item.type]"

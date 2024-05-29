@@ -17,14 +17,14 @@ const { query, updateQueryParam } = useBindUrl(props.selection.path)
         :icon="TextCursorInput"
     />
 
-    <span class="text-xs text-zinc-500" v-if="props.selection.schema.description">
+    <span v-if="props.selection.schema.description" class="text-xs text-zinc-500">
       {{ props.selection.schema.description }}
     </span>
 
     <Input
         v-model="query"
-        @input="updateQueryParam"
         :placeholder="props.selection.name"
+        @input="updateQueryParam"
     />
   </div>
 </template>

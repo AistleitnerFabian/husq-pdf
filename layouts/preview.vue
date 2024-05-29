@@ -1,12 +1,12 @@
 <template>
   <div class="size-full">
-    <div class="p-8 space-y-4" v-if="pending">
+    <div v-if="pending" class="p-8 space-y-4">
       <Skeleton class="w-[595px] h-[842px] mx-auto" />
       <Skeleton class="w-[595px] h-[842px] mx-auto" />
     </div>
 
     <div v-if="!pending && data" class="w-full h-full p-8 overflow-y-auto">
-      <div v-for="(_, index) in data.pages" class="mb-4">
+      <div v-for="(_, index) in data.pages" :key="index" class="mb-4">
         <VuePDF :pdf="data.pdf" :page="index + 1" class="!flex justify-center drop-shadow-xl"/>
       </div>
     </div>

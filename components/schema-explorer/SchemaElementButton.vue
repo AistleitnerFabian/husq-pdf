@@ -36,11 +36,11 @@ watch(
       :style="{ paddingLeft: props.level * 1.25 + 'rem'}"
       class="w-full rounded h-7 pr-4 select-none flex items-center">
     <Button
-        @click="$emit('collapse')"
-        variant="ghost"
         v-if="props.collapsable"
+        variant="ghost"
         size="xs"
         class="transition-none"
+        @click="$emit('collapse')"
     >
       <ChevronRight v-if="!props.isOpen" class="size-4 text-zinc-500" />
       <ChevronDown v-else class="size-4 text-zinc-500" />
@@ -48,13 +48,13 @@ watch(
     <div v-else class="size-8"/>
 
     <Button
-        @click="select"
         variant="ghost"
         size="xs"
         :class="cn(
             'flex flex-1 justify-start gap-x-2 transition-none',
             isSelected && 'bg-accent'
-        )">
+        )"
+        @click="select">
       <component :is="props.icon" class="size-4 text-primary" />
       <span class="flex-1 text-left">{{ props.text }}</span>
       <span class="text-xs font-mono text-zinc-500 !font-normal">{{props.subtext}}</span>

@@ -23,7 +23,7 @@ const props = defineProps<NestedPropertyButtonProps>()
 </script>
 
 <template>
-  <div @click="select" class="'w-full rounded h-7 select-none flex items-center'">
+  <div class="'w-full rounded h-7 select-none flex items-center'" @click="select">
     <Button variant="ghost" size="xs" class="flex flex-1 justify-start gap-x-2 transition-none">
       <component :is="props.icon" class="size-4 text-primary" />
       <span class="flex-1 text-left">{{ props.text }}</span>

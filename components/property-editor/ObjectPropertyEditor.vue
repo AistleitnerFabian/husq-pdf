@@ -15,8 +15,8 @@ const { value } = computed(() => separateFields(props.selection.schema))
 <template>
   <div class="space-y-6">
     <component
-        v-for="[name, schema] in Object.entries(value.primitives)"
         :is="editorMapping[schema.type]"
+        v-for="[name, schema] in Object.entries(value.primitives)"
         :key="props.selection.path + '.' + name"
         :selection="{
           path: op(props.selection.path, name),
@@ -25,12 +25,13 @@ const { value } = computed(() => separateFields(props.selection.schema))
         }"
     />
 
-    <div class="space-y-2" v-if="Object.keys(value.nested).length > 0">
+    <div v-if="Object.keys(value.nested).length > 0" class="space-y-2">
       <Separator />
 
       <h3 class="text-sm">Nested properties</h3>
       <nested-property-button
           v-for="[name, schema] in Object.entries(value.nested)"
+          :key="op(props.selection.path, name)"
           :text="name"
           :subtext="schema.type"
           :icon="schema.type == 'object' ? Braces : Brackets"

@@ -5,7 +5,7 @@ type ArrayPropertyEditorProps = {
   selection: EditorSelection<SchemaArrayType>
 }
 const props = defineProps<ArrayPropertyEditorProps>()
-const { query, setQueryParams } = useBindUrl(props.selection.path)
+const { query } = useBindUrl(props.selection.path)
 </script>
 
 <template>

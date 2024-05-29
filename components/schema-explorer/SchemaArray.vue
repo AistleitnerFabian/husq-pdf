@@ -11,7 +11,7 @@
       @collapse="isOpen = !isOpen"
   />
   <div v-show="isOpen">
-    <div  v-for="(item, index) in props.schema.items">
+    <div v-for="(item, index) in props.schema.items"  :key="`${props.path}[${index}]`">
       <component
           :is="explorerMapping[item.type]"
           :schema="item"
