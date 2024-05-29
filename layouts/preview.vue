@@ -1,7 +1,7 @@
 <template>
   <div class="size-full">
     <ScrollArea :class="isInPreviewMode ? 'h-screen' : 'h-full'" class="bg-muted dark:bg-background">
-      <div v-if="pending" class="absolute left-1/2 z-10mt-6 -translate-x-1/2">
+      <div v-if="pending" class="absolute left-1/2 z-10 mt-6 -translate-x-1/2">
         <div
             class="flex items-center gap-2 rounded-full border bg-background p-2 px-4  animate-in slide-in-from-top-3">
           <Loader2 class="size-3 animate-spin text-primary"/>
