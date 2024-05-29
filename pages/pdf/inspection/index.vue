@@ -5,7 +5,7 @@
       </template>
       <pdf-page>
          {{ pageData() }}
-         <h1 class="text-3xl">Firstname: {{ pageData().firstName }}</h1>
+         <h1 class="text-3xl">This is a preview: {{ pageData().firstName }}</h1>
       </pdf-page>
       <pdf-page>
          <h1 class="text-3xl">Lastname: {{ pageData().firstName }}</h1>
