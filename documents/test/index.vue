@@ -1,7 +1,11 @@
 <template>
    <pdf-document margin="1cm" header-height="1cm" footer-height="1.5cm">
       <template #header>
-         <pdf-header>this is my header</pdf-header>
+         <pdf-header>
+           <template v-slot:left><span>Left</span></template>
+           <template v-slot:center><span>Center</span></template>
+           <template v-slot:right><span>Right</span></template>
+         </pdf-header>
       </template>
 
       <pdf-page>
@@ -11,7 +15,11 @@
       </pdf-page>
 
       <template #footer>
-         <pdf-footer>this is my footer</pdf-footer>
+         <pdf-footer>
+           <template v-slot:left><span>Left</span></template>
+           <template v-slot:center><span>Center</span></template>
+           <template v-slot:right><span>Right</span></template>
+         </pdf-footer>
       </template>
    </pdf-document>
 </template>
